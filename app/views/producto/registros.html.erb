@@ -1,0 +1,40 @@
+<br>
+<div class="row">
+	<div  class="col-md-6">
+		<a class="btn btn-info"  href="/producto/nuevo">Registrar Nuevo Producto</a>
+	</div>
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre del producto</th>
+				<th>Precio</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @productos.each do |producto| %>
+			<tr>
+				<td> <%= producto.id %> </td>
+				<td> <%= producto.nombre_producto %> </td>
+				<td> <%= producto.precio %> </td>
+				<td>
+					<a href="/producto/eliminar/<%= producto.id %>" class="btn btn-danger">Eliminar
+					</a>
+				</td>
+				<td>
+					<a href="/producto/consultar/<%= producto.id %>" class="btn btn-info">Modificar
+					</a>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+<br>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <h5 style="background: #17A2B8;" class="card-header primary-color white-text text-center py-4">
+                <strong style="color: white;">Modificar orden</strong>
+            </h5>           
+            <div class="card-body px-lg-5 pt-0">
+                <!-- Form -->
+                    <form class="text-center" style="color: #757575;" method="post" action="/orden/modificar/<%=@orden.id%>">
+                    <%= token_tag nil %>
+                    <!-- RFC -->
+                    <div class="md-form">
+                        <label>Cliente</label>
+                        <select class="form-control" name="id_cliente"> 
+                            <% @clientes.each do |cliente| %>
+                            <option value="<%=cliente.id%>"><%=cliente.nombre_cliente%></option>
+                            <%end%>
+                        </select>
+                    </div>
+
+                    <div class="md-form">
+                        <label>Producto</label>
+                        <select class="form-control" name="id_producto"> 
+                            <% @productos.each do |producto| %>
+                            <option value="<%=producto.id%>"><%=producto.nombre_producto%></option>
+                            <%end%>
+                        </select>
+                    </div>
+
+
+                    <!-- Nombre -->
+                    <div class="md-form">
+                        <label>Unidades</label>
+                        <input type="number" value="<%=@orden.unidad%>" name="unidades" class="form-control">
+                    </div>
+                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Guardar</button>
+                </form>
+                <!-- Form -->
+            </div>
+        </div>
+        <!-- Material form login -->
+    </div>
+</div>

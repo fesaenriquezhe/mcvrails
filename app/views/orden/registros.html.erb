@@ -1,0 +1,43 @@
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<a class="btn btn-primary"  href="/orden/nueva">Registrar Nueva Orden</a>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-12">
+		<table class="table">
+		<thead>
+			<tr>
+				<th>Cliente</th>
+				<th>RFC</th>
+				<th>Producto</th>
+				<th>Unidades</th>
+				<th>Total</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @ordenes.each do |orden|  %>
+			<tr>
+				<td> <%= orden.cliente.nombre_cliente%></td>
+                <td> <%= orden.cliente.rfc %></td>
+				<td> <%= orden.producto.nombre_producto %></td>
+				<td> <%= orden.unidad %></td>
+				<td> <%= orden.unidad * orden.producto.precio %></td>
+				<td>
+				<a href="/orden/eliminar/<%= orden.id %>" class="btn btn-danger">Eliminar
+				</a>
+				</td>
+				<td>
+				<a href="/orden/consultar/<%= orden.id %>" class="btn btn-info">Modificar
+				</a>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>	
+</div>
