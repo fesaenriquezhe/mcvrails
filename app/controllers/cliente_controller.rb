@@ -1,35 +1,35 @@
 class ClienteController < ApplicationController
 
-	def nuevo
+	def agregar
 	end
 
-	def crear
+	def guardar
 		cliente = Cliente.new
 		cliente.rfc = params[:rfc]
 		cliente.nombre_cliente = params[:nombre_cliente]
 		cliente.save
-		redirect_to "/cliente/registros"
+		redirect_to "/cliente/"
 	end
 
-	def registros
+	def todos
 		@clientes = Cliente.all
 	end
 
 	def eliminar
 		cliente = Cliente.find(params[:id])
 		cliente.destroy
-		redirect_to "/cliente/registros"
-	end
-
-	def consultar
-		@cliente = Cliente.find(params[:id])
+		redirect_to "/cliente/"
 	end
 
 	def modificar
+		@cliente = Cliente.find(params[:id])
+	end
+
+	def actualizar
 		cliente = Cliente.find(params[:id])
 		cliente.rfc = params[:rfc]
 		cliente.nombre_cliente = params[:nombre_cliente]
 		cliente.save
-		redirect_to "/cliente/registros"
+		redirect_to "/cliente/"
 	end
 end

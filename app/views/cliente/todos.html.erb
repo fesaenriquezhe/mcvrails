@@ -2,7 +2,7 @@
 <br>
 <div class="row">
 	<div class="col-md-6">
-		<a class="btn btn-primary" href="/cliente/nuevo">Registrar Nuevo Cliente</a>
+		<a class="btn btn-primary" href="/cliente/agregar">Registrar Nuevo Cliente</a>
 	</div>
 </div>
 <br>
@@ -26,7 +26,7 @@
 				<td> <%= cliente.rfc %> </td>
 				<td> <%= cliente.nombre_cliente %> </td>
 				<td><a href="/cliente/eliminar/<%= cliente.id %>" class="btn btn-danger">Eliminar</a></td>
-				<td><a href="/cliente/consultar/<%= cliente.id %>" class="btn btn-info">Modificar</a></td>
+				<td><a href="/cliente/modificar/<%= cliente.id %>" class="btn btn-info">Modificar</a></td>
 			</tr>
 			<% end %>
 		</tbody>

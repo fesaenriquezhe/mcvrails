@@ -1,35 +1,35 @@
 class ProductoController < ApplicationController
-    def nuevo
+    def agregar
     end
 
-    def crear
+    def guardar
         producto  = Producto.new
         producto.nombre_producto = params[:nombre_producto]
         producto.precio = params[:precio]
         producto.save
-        redirect_to "/producto/registros"
+        redirect_to "/producto/"
     end
 
-    def registros
+    def todos
         @productos = Producto.all
     end
 
     def eliminar
 		producto = Producto.find(params[:id])
 		producto.destroy
-		redirect_to "/producto/registros"
-    end
-    
-    def consultar
-        @producto = Producto.find(params[:id])
+		redirect_to "/producto/"
     end
     
     def modificar
+        @producto = Producto.find(params[:id])
+    end
+    
+    def actualizar
         producto = Producto.find(params[:id])
 		producto.nombre_producto = params[:nombre_producto]
 		producto.precio = params[:precio]
 		producto.save
-		redirect_to "/producto/registros"
+		redirect_to "/producto/"
 	end
 end
 
